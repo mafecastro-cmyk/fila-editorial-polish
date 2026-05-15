@@ -214,7 +214,7 @@ function Index() {
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 lg:col-span-7 reveal-up">
               <h2 className="text-editorial text-heritage text-5xl md:text-6xl lg:text-7xl leading-[0.95]">
-                After <span className="text-editorial-italic">Run</span>
+                After <span className="text-editorial-italic neon-text-red">Run</span>
               </h2>
             </div>
             <div className="col-span-12 lg:col-start-9 lg:col-span-4 flex flex-col justify-end space-y-8 reveal-up">

@@ -84,7 +84,7 @@ function Index() {
             <img
               src={runPizzaTitle}
               alt="Run & Pizza"
-              className="block w-full max-w-[1100px] h-auto max-h-[66vh] mx-auto select-none"
+              className="block h-auto w-[60%] sm:w-[48%] md:w-[40%] lg:w-[36%] max-w-[520px] select-none"
               draggable={false}
             />
             <div className="mt-8 md:mt-10 max-w-none">
@@ -214,7 +214,7 @@ function Index() {
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 lg:col-span-7 reveal-up">
               <h2 className="text-editorial text-heritage text-5xl md:text-6xl lg:text-7xl leading-[0.95]">
-                After <span className="text-editorial-italic">Run</span>
+                After <span className="text-editorial-italic neon-text-red">Run</span>
               </h2>
             </div>
             <div className="col-span-12 lg:col-start-9 lg:col-span-4 flex flex-col justify-end space-y-8 reveal-up">

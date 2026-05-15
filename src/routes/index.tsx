@@ -186,7 +186,7 @@ function Index() {
 
           <div className="relative grid grid-cols-1 md:grid-cols-3 reveal-up neon-grid-top">
             <InfoCell label="Fecha" value="21 de mayo" sub="2026" />
-            <InfoCell label="Hora" value="6:00 PM" sub="" />
+            <InfoCell label="Hora" value="6:00 PM" tz="(GMT-5)" />
             <InfoCell label="Lugar" value="Plaza TAF" sub="Costa del Este, Panamá" last />
           </div>
         </div>
@@ -326,11 +326,13 @@ function InfoCell({
   value,
   sub,
   last,
+  tz,
 }: {
   label: string;
   value: string;
   sub: string;
   last?: boolean;
+  tz?: string;
 }) {
   return (
     <div
@@ -340,6 +342,7 @@ function InfoCell({
     >
       <div className="label-tech text-[var(--slate-black)]/55 mb-6">{label}</div>
       <div className="text-editorial text-5xl md:text-7xl">{value}</div>
+      {tz ? <div className="mt-1 label-tech text-[var(--slate-black)]/45">{tz}</div> : null}
       {sub ? <div className="mt-4 text-[var(--slate-black)]/70">{sub}</div> : null}
     </div>
   );

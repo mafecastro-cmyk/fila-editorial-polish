@@ -84,7 +84,7 @@ function Index() {
             <img
               src={runPizzaTitle}
               alt="Run & Pizza"
-              className="block w-full max-w-[1100px] h-auto max-h-[66vh] mx-auto select-none"
+              className="block h-auto w-[60%] sm:w-[48%] md:w-[40%] lg:w-[36%] max-w-[520px] select-none"
               draggable={false}
             />
             <div className="mt-8 md:mt-10 max-w-none">

@@ -213,7 +213,7 @@ function Index() {
         <div className="relative z-10 mx-auto max-w-[1680px] px-6 md:px-10">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 lg:col-span-7 reveal-up">
-              <h2 className="text-editorial text-heritage text-5xl md:text-6xl lg:text-7xl leading-[0.95]">
+              <h2 className="text-editorial text-heritage text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-[0.9] tracking-tight">
                 After <span className="text-editorial-italic neon-text-red">Run</span>
               </h2>
             </div>

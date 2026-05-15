@@ -84,7 +84,7 @@ function Index() {
             <img
               src={runPizzaTitle}
               alt="Run & Pizza"
-              className="block w-full max-w-[1100px] h-auto select-none"
+              className="block w-full max-w-[1100px] h-auto max-h-[66vh] mx-auto select-none"
               draggable={false}
             />
             <div className="mt-8 md:mt-10 max-w-none">
@@ -186,7 +186,7 @@ function Index() {
 
           <div className="relative grid grid-cols-1 md:grid-cols-3 reveal-up neon-grid-top">
             <InfoCell label="Fecha" value="21 de mayo" sub="2026" />
-            <InfoCell label="Hora" value="6:00 PM" sub="" />
+            <InfoCell label="Hora" value="6:00 PM" tz="(GMT-5)" />
             <InfoCell label="Lugar" value="Plaza TAF" sub="Costa del Este, Panamá" last />
           </div>
         </div>
@@ -213,11 +213,9 @@ function Index() {
         <div className="relative z-10 mx-auto max-w-[1680px] px-6 md:px-10">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 lg:col-span-7 reveal-up">
-              <img
-                src={runPizzaGraphic}
-                alt="RUN & PIZZA"
-                className="w-full max-w-[640px] h-auto object-contain"
-              />
+              <h2 className="text-editorial text-heritage text-5xl md:text-6xl lg:text-7xl leading-[0.95]">
+                After <span className="text-editorial-italic">Run</span>
+              </h2>
             </div>
             <div className="col-span-12 lg:col-start-9 lg:col-span-4 flex flex-col justify-end space-y-8 reveal-up">
               <p className="text-xl md:text-2xl text-heritage font-light leading-relaxed">
@@ -328,11 +326,13 @@ function InfoCell({
   value,
   sub,
   last,
+  tz,
 }: {
   label: string;
   value: string;
-  sub: string;
+  sub?: string;
   last?: boolean;
+  tz?: string;
 }) {
   return (
     <div
@@ -342,6 +342,7 @@ function InfoCell({
     >
       <div className="label-tech text-[var(--slate-black)]/55 mb-6">{label}</div>
       <div className="text-editorial text-5xl md:text-7xl">{value}</div>
+      {tz ? <div className="mt-1 label-tech text-[var(--slate-black)]/45">{tz}</div> : null}
       {sub ? <div className="mt-4 text-[var(--slate-black)]/70">{sub}</div> : null}
     </div>
   );

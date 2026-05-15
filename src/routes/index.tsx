@@ -330,7 +330,7 @@ function InfoCell({
 }: {
   label: string;
   value: string;
-  sub: string;
+  sub?: string;
   last?: boolean;
   tz?: string;
 }) {

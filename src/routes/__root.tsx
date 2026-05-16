@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "FILA - RUN AND PIZZA" },
+      { name: "description", content: "FILA Campaign Polish refines an existing FILA campaign landing page with small frontend adjustments." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "FILA - RUN AND PIZZA" },
+      { property: "og:description", content: "FILA Campaign Polish refines an existing FILA campaign landing page with small frontend adjustments." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "FILA - RUN AND PIZZA" },
+      { name: "twitter:description", content: "FILA Campaign Polish refines an existing FILA campaign landing page with small frontend adjustments." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f8d5dc6d-006c-4e6c-864a-4028d539c87d/id-preview-4049b9e0--a99b8ff9-8e25-4dea-a0ce-4ce6b6a7866b.lovable.app-1778888671781.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f8d5dc6d-006c-4e6c-864a-4028d539c87d/id-preview-4049b9e0--a99b8ff9-8e25-4dea-a0ce-4ce6b6a7866b.lovable.app-1778888671781.png" },
     ],
     links: [
       {

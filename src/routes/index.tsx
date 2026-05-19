@@ -80,13 +80,10 @@ function Index() {
 
         <div className="relative z-10 mx-auto max-w-[1680px] px-6 md:px-10 pt-40 md:pt-48 pb-24 min-h-screen flex flex-col justify-end">
           <div className="max-w-5xl">
-            <h1 className="sr-only">Run &amp; Pizza</h1>
-            <img
-              src={runPizzaTitle}
-              alt="Run & Pizza"
-              className="block h-auto w-[60%] sm:w-[48%] md:w-[40%] lg:w-[36%] max-w-[520px] select-none"
-              draggable={false}
-            />
+            <h1 className="text-editorial text-heritage leading-[0.85] tracking-tight text-[18vw] sm:text-[14vw] md:text-[11vw] lg:text-[9vw] max-w-[60%] sm:max-w-[48%] md:max-w-[40%] lg:max-w-[36%]">
+              <span className="block neon-text-red">Run</span>
+              <span className="block text-editorial-italic">&amp; Pizza</span>
+            </h1>
             <div className="mt-8 md:mt-10 max-w-none">
               <p className="text-editorial text-heritage text-4xl md:text-5xl lg:text-6xl leading-[0.95]">
                 Corre. <span className="text-editorial-italic">Comparte.</span> Celebra.

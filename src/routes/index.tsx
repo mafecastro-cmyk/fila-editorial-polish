@@ -39,10 +39,10 @@ export const Route = createFileRoute("/")({
 });
 
 const products = [
-  { name: "MAXXIMUS Masculino", category: "Calzado", img: p1 },
+  { name: "MAXXIMUS Masculino", category: "Calzado", img: p4 },
   { name: "RACER FASTPACE", category: "Calzado", img: p2 },
   { name: "RACER T2 EXTREME MASCULINO", category: "Calzado", img: p3 },
-  { name: "RACER T2 XTREME FEMENINO", category: "Calzado", img: p4 },
+  { name: "RACER T2 XTREME FEMENINO", category: "Calzado", img: p1 },
 ];
 
 function Index() {

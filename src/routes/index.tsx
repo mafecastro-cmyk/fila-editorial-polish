@@ -217,7 +217,7 @@ function Index() {
             <div className="col-span-12 lg:col-start-9 lg:col-span-4 flex flex-col justify-end space-y-8 reveal-up">
               <p className="text-xl md:text-2xl text-heritage font-light leading-relaxed">
                 Cierra la jornada con música, pizza y comunidad en{" "}
-                <span className="text-editorial-italic">Botánica</span> — TAG Costa del Este.
+                <span className="text-editorial-italic">Botánica</span> — TAF Costa del Este.
               </p>
               <blockquote className="border-l-2 border-[var(--fila-red)] pl-6 text-heritage/75 italic font-serif text-2xl leading-snug">
                 “Música, pizza, comunidad y la mejor vibra para cerrar la noche.”

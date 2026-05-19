@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Una experiencia FILA que une running, comunidad y estilo de vida italiano. 22 de Mayo 2026 · Plaza TAG, Costa del Este.",
+          "Una experiencia FILA que une running, comunidad y estilo de vida italiano. 22 de Mayo 2026 · Plaza TAF, Costa del Este.",
       },
       { property: "og:title", content: "FILA RUN & PIZZA" },
       {

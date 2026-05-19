@@ -183,7 +183,7 @@ function Index() {
 
           <div className="relative grid grid-cols-1 md:grid-cols-3 reveal-up neon-grid-top">
             <InfoCell label="Fecha" value="21 de mayo" sub="2026" />
-            <InfoCell label="Hora" value="6:00 PM" tz="(GMT-5)" />
+            <InfoCell label="Hora" value="6:00 PM" />
             <InfoCell label="Lugar" value="Plaza TAF" sub="Costa del Este, Panamá" last />
           </div>
         </div>

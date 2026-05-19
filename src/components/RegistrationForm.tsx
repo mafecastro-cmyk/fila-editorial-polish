@@ -33,14 +33,41 @@ const schema = z
 const fieldClass =
   "w-full bg-transparent border-0 border-b border-heritage/25 py-4 text-heritage placeholder:text-heritage/40 focus:outline-none focus:border-[var(--fila-red)] transition-colors";
 
+const MAILCHIMP_URL =
+  "https://spwcorp.us3.list-manage.com/subscribe/post-json?u=92672509bc7b68335c65ae498&id=302bd38f23&f_id=0056c1e5f0";
+
+function submitToMailchimp(params: Record<string, string>): Promise<{ result: string; msg: string }> {
+  return new Promise((resolve, reject) => {
+    const cb = `mc_cb_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
+    const qs = new URLSearchParams(params).toString();
+    const script = document.createElement("script");
+    script.src = `${MAILCHIMP_URL}&${qs}&c=${cb}`;
+    const cleanup = () => {
+      delete (window as any)[cb];
+      script.remove();
+    };
+    (window as any)[cb] = (data: { result: string; msg: string }) => {
+      cleanup();
+      resolve(data);
+    };
+    script.onerror = () => {
+      cleanup();
+      reject(new Error("network"));
+    };
+    document.body.appendChild(script);
+  });
+}
+
 export function RegistrationForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [condicion, setCondicion] = useState<string>("");
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     const raw = {
       nombre: fd.get("nombre"),
       email: fd.get("email"),
@@ -66,8 +93,35 @@ export function RegistrationForm() {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSubmitting(true);
+    try {
+      const fullName = parsed.data.nombre.trim();
+      const idx = fullName.indexOf(" ");
+      const fname = idx === -1 ? fullName : fullName.slice(0, idx);
+      const lname = idx === -1 ? "" : fullName.slice(idx + 1);
+      const res = await submitToMailchimp({
+        EMAIL: parsed.data.email,
+        FNAME: fname,
+        LNAME: lname,
+        ADDRESS: parsed.data.direccion,
+        PHONE: parsed.data.telefono,
+      });
+      if (res.result === "success") {
+        toast.success("¡Inscripción confirmada!");
+        form.reset();
+        setCondicion("");
+        setSubmitted(true);
+      } else {
+        const msg = (res.msg || "").replace(/<[^>]+>/g, "");
+        toast.error(msg || "No se pudo completar la inscripción");
+      }
+    } catch {
+      toast.error("Error de conexión. Inténtalo de nuevo.");
+    } finally {
+      setSubmitting(false);
+    }
   };
+
 
   if (submitted) {
     return (
@@ -175,8 +229,8 @@ export function RegistrationForm() {
       </div>
 
       <div className="md:col-span-2 pt-6 flex justify-center md:justify-start">
-        <button type="submit" className="cta-pill cta-pill-red px-10 py-5">
-          <span>Confirmar inscripción</span>
+        <button type="submit" disabled={submitting} className="cta-pill cta-pill-red px-10 py-5 disabled:opacity-60 disabled:cursor-not-allowed">
+          <span>{submitting ? "Enviando..." : "Confirmar inscripción"}</span>
           <span aria-hidden>→</span>
         </button>
       </div>

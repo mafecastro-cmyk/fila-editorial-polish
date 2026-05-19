@@ -79,7 +79,7 @@ function Index() {
 
         <div className="relative z-10 mx-auto max-w-[1680px] px-6 md:px-10 pt-40 md:pt-48 pb-24 min-h-screen flex flex-col justify-end">
           <div className="max-w-5xl">
-            <h1 className="text-editorial text-heritage leading-[0.85] tracking-tight text-[18vw] sm:text-[14vw] md:text-[11vw] lg:text-[9vw] max-w-[60%] sm:max-w-[48%] md:max-w-[40%] lg:max-w-[36%]">
+            <h1 className="text-editorial text-heritage leading-[0.82] tracking-tight text-[28vw] sm:text-[24vw] md:text-[20vw] lg:text-[17vw] xl:text-[16vw]">
               <span className="block neon-text-red">Run</span>
               <span className="block text-editorial-italic">&amp; Pizza</span>
             </h1>

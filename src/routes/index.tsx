@@ -14,7 +14,6 @@ import p3 from "@/assets/product-3.jpg";
 import p4 from "@/assets/product-4.jpg";
 import filaNeon from "@/assets/fila-neon-logo.png";
 import runPizzaGraphic from "@/assets/run-pizza-graphic.png";
-import runPizzaTitle from "@/assets/run-pizza-title.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -24,7 +23,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Una experiencia FILA que une running, comunidad y estilo de vida italiano. 22 de Mayo 2026 · Plaza TAG, Costa del Este.",
+          "Una experiencia FILA que une running, comunidad y estilo de vida italiano. 22 de Mayo 2026 · Plaza TAF, Costa del Este.",
       },
       { property: "og:title", content: "FILA RUN & PIZZA" },
       {
@@ -39,10 +38,10 @@ export const Route = createFileRoute("/")({
 });
 
 const products = [
-  { name: "MAXXIMUS Masculino", category: "Calzado", img: p1 },
+  { name: "MAXXIMUS Masculino", category: "Calzado", img: p4 },
   { name: "RACER FASTPACE", category: "Calzado", img: p2 },
   { name: "RACER T2 EXTREME MASCULINO", category: "Calzado", img: p3 },
-  { name: "RACER T2 XTREME FEMENINO", category: "Calzado", img: p4 },
+  { name: "RACER T2 XTREME FEMENINO", category: "Calzado", img: p1 },
 ];
 
 function Index() {
@@ -80,13 +79,10 @@ function Index() {
 
         <div className="relative z-10 mx-auto max-w-[1680px] px-6 md:px-10 pt-40 md:pt-48 pb-24 min-h-screen flex flex-col justify-end">
           <div className="max-w-5xl">
-            <h1 className="sr-only">Run &amp; Pizza</h1>
-            <img
-              src={runPizzaTitle}
-              alt="Run & Pizza"
-              className="block h-auto w-[60%] sm:w-[48%] md:w-[40%] lg:w-[36%] max-w-[520px] select-none"
-              draggable={false}
-            />
+            <h1 className="text-editorial text-heritage leading-[0.85] tracking-tight text-[18vw] sm:text-[14vw] md:text-[11vw] lg:text-[9vw] max-w-[60%] sm:max-w-[48%] md:max-w-[40%] lg:max-w-[36%]">
+              <span className="block neon-text-red">Run</span>
+              <span className="block text-editorial-italic">&amp; Pizza</span>
+            </h1>
             <div className="mt-8 md:mt-10 max-w-none">
               <p className="text-editorial text-heritage text-4xl md:text-5xl lg:text-6xl leading-[0.95]">
                 Corre. <span className="text-editorial-italic">Comparte.</span> Celebra.
@@ -186,7 +182,7 @@ function Index() {
 
           <div className="relative grid grid-cols-1 md:grid-cols-3 reveal-up neon-grid-top">
             <InfoCell label="Fecha" value="21 de mayo" sub="2026" />
-            <InfoCell label="Hora" value="6:00 PM" tz="(GMT-5)" />
+            <InfoCell label="Hora" value="6:00 PM" />
             <InfoCell label="Lugar" value="Plaza TAF" sub="Costa del Este, Panamá" last />
           </div>
         </div>
@@ -220,7 +216,7 @@ function Index() {
             <div className="col-span-12 lg:col-start-9 lg:col-span-4 flex flex-col justify-end space-y-8 reveal-up">
               <p className="text-xl md:text-2xl text-heritage font-light leading-relaxed">
                 Cierra la jornada con música, pizza y comunidad en{" "}
-                <span className="text-editorial-italic">Botánica</span> — TAG Costa del Este.
+                <span className="text-editorial-italic">Botánica</span> — TAF Costa del Este.
               </p>
               <blockquote className="border-l-2 border-[var(--fila-red)] pl-6 text-heritage/75 italic font-serif text-2xl leading-snug">
                 “Música, pizza, comunidad y la mejor vibra para cerrar la noche.”
@@ -284,14 +280,12 @@ function Index() {
                   key={p.name}
                   className="group shrink-0 snap-start w-[78vw] sm:w-[55vw] md:w-[36vw] lg:w-[26vw]"
                 >
-                  <div className="relative aspect-[4/5] bg-[var(--slate-black)]/[0.04] overflow-hidden">
+                  <div className="relative aspect-[4/5] bg-[var(--slate-black)]/[0.04] overflow-hidden flex items-center justify-center">
                     <img
                       src={p.img}
                       alt={p.name}
-                      width={1024}
-                      height={1280}
                       loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="max-h-full max-w-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                     />
                     <span className="absolute top-4 left-4 label-tech text-[var(--slate-black)]/60">
                       {String(i + 1).padStart(2, "0")}

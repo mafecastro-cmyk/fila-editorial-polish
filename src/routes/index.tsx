@@ -281,14 +281,12 @@ function Index() {
                   key={p.name}
                   className="group shrink-0 snap-start w-[78vw] sm:w-[55vw] md:w-[36vw] lg:w-[26vw]"
                 >
-                  <div className="relative aspect-[4/5] bg-[var(--slate-black)]/[0.04] overflow-hidden">
+                  <div className="relative aspect-[4/5] bg-[var(--slate-black)]/[0.04] overflow-hidden flex items-center justify-center">
                     <img
                       src={p.img}
                       alt={p.name}
-                      width={1024}
-                      height={1280}
                       loading="lazy"
-                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="max-h-full max-w-full w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-105"
                     />
                     <span className="absolute top-4 left-4 label-tech text-[var(--slate-black)]/60">
                       {String(i + 1).padStart(2, "0")}

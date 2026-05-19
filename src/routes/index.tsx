@@ -14,7 +14,6 @@ import p3 from "@/assets/product-3.jpg";
 import p4 from "@/assets/product-4.jpg";
 import filaNeon from "@/assets/fila-neon-logo.png";
 import runPizzaGraphic from "@/assets/run-pizza-graphic.png";
-import runPizzaTitle from "@/assets/run-pizza-title.png";
 
 export const Route = createFileRoute("/")({
   component: Index,

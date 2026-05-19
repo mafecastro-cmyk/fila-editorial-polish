@@ -2,17 +2,33 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 
-const schema = z.object({
-  nombre: z.string().trim().min(2, "Nombre requerido").max(80),
-  email: z.string().trim().email("Correo inválido").max(120),
-  telefono: z.string().trim().min(6, "Teléfono inválido").max(25),
-  edad: z.coerce.number({ invalid_type_error: "Edad inválida" }).min(15, "Edad mínima 15").max(90),
-  nivel: z.string().min(1, "Selecciona un nivel").refine((v) => ["principiante", "intermedio"].includes(v), "Selecciona un nivel"),
-  talla: z.string().min(1, "Selecciona talla").refine((v) => ["XS","S","M","L","XL","XXL"].includes(v), "Selecciona talla"),
-  ciudad: z.string().trim().min(2, "Ciudad requerida").max(60),
-  terminos: z.boolean().refine((v) => v === true, "Debes aceptar los términos"),
-  imagen: z.boolean().refine((v) => v === true, "Debes autorizar el uso de imagen"),
-});
+const schema = z
+  .object({
+    nombre: z.string().trim().min(2, "Nombre requerido").max(80),
+    email: z.string().trim().email("Correo inválido").max(120),
+    telefono: z.string().trim().min(6, "Teléfono inválido").max(25),
+    edad: z.coerce.number({ invalid_type_error: "Edad inválida" }).min(15, "Edad mínima 15").max(90),
+    nivel: z
+      .string()
+      .min(1, "Selecciona un nivel")
+      .refine((v) => ["principiante", "intermedio"].includes(v), "Selecciona un nivel"),
+    talla: z
+      .string()
+      .min(1, "Selecciona talla")
+      .refine((v) => ["S", "M", "L"].includes(v), "Selecciona talla"),
+    direccion: z.string().trim().min(2, "Dirección requerida").max(120),
+    condicion: z
+      .string()
+      .min(1, "Selecciona una opción")
+      .refine((v) => ["si", "no"].includes(v), "Selecciona una opción"),
+    condicionDetalle: z.string().trim().max(200).optional(),
+    terminos: z.boolean().refine((v) => v === true, "Debes aceptar los términos"),
+    imagen: z.boolean().refine((v) => v === true, "Debes autorizar el uso de imagen"),
+  })
+  .refine((d) => d.condicion !== "si" || (d.condicionDetalle && d.condicionDetalle.length >= 2), {
+    message: "Indica cuál condición",
+    path: ["condicionDetalle"],
+  });
 
 const fieldClass =
   "w-full bg-transparent border-0 border-b border-heritage/25 py-4 text-heritage placeholder:text-heritage/40 focus:outline-none focus:border-[var(--fila-red)] transition-colors";
@@ -20,6 +36,7 @@ const fieldClass =
 export function RegistrationForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [condicion, setCondicion] = useState<string>("");
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,7 +48,9 @@ export function RegistrationForm() {
       edad: fd.get("edad"),
       nivel: fd.get("nivel"),
       talla: fd.get("talla"),
-      ciudad: fd.get("ciudad"),
+      direccion: fd.get("direccion"),
+      condicion: fd.get("condicion"),
+      condicionDetalle: fd.get("condicionDetalle") ?? "",
       terminos: fd.get("terminos") === "on",
       imagen: fd.get("imagen") === "on",
     };
@@ -88,8 +107,8 @@ export function RegistrationForm() {
 
       <div>
         <Label>Talla de camiseta</Label>
-        <div className="grid grid-cols-6 gap-2 mt-3">
-          {["XS", "S", "M", "L", "XL", "XXL"].map((s) => (
+        <div className="grid grid-cols-3 gap-2 mt-3">
+          {["S", "M", "L"].map((s) => (
             <label key={s} className="cursor-pointer group">
               <input type="radio" name="talla" value={s} className="peer sr-only" />
               <div className="border border-heritage/25 py-3 text-center label-tech text-heritage/80 transition-all duration-200 group-hover:border-heritage/60 group-hover:text-heritage group-hover:bg-heritage/[0.04] peer-checked:bg-[var(--fila-red)] peer-checked:border-[var(--fila-red)] peer-checked:text-heritage peer-checked:shadow-[0_0_0_1px_var(--fila-red)]">
@@ -101,11 +120,54 @@ export function RegistrationForm() {
         {errors.talla && <p className="mt-2 text-xs text-[var(--fila-red)]">{errors.talla}</p>}
       </div>
 
-      <Field label="Ciudad" name="ciudad" type="text" error={errors.ciudad} className="md:col-span-2" />
+      <Field label="Dirección" name="direccion" type="text" error={errors.direccion} className="md:col-span-2" />
+
+      <div className="md:col-span-2">
+        <Label>¿Sufre de alguna condición de salud?</Label>
+        <div className="flex gap-3 mt-3 max-w-xs">
+          {[
+            { v: "si", l: "Sí" },
+            { v: "no", l: "No" },
+          ].map((opt) => (
+            <label key={opt.v} className="flex-1 cursor-pointer group">
+              <input
+                type="radio"
+                name="condicion"
+                value={opt.v}
+                className="peer sr-only"
+                onChange={() => setCondicion(opt.v)}
+              />
+              <div className="border border-heritage/25 py-4 text-center label-tech text-heritage/80 transition-all duration-200 group-hover:border-heritage/60 group-hover:text-heritage group-hover:bg-heritage/[0.04] peer-checked:bg-[var(--fila-red)] peer-checked:border-[var(--fila-red)] peer-checked:text-heritage peer-checked:shadow-[0_0_0_1px_var(--fila-red)]">
+                {opt.l}
+              </div>
+            </label>
+          ))}
+        </div>
+        {errors.condicion && <p className="mt-2 text-xs text-[var(--fila-red)]">{errors.condicion}</p>}
+      </div>
+
+      {condicion === "si" && (
+        <Field
+          label="¿Cuál?"
+          name="condicionDetalle"
+          type="text"
+          error={errors.condicionDetalle}
+          className="md:col-span-2"
+        />
+      )}
 
       <div className="md:col-span-2 space-y-4 pt-4">
         <Checkbox name="terminos" error={errors.terminos}>
-          Acepto los términos y condiciones del evento.
+          Acepto los{" "}
+          <a
+            href="https://filalatin.com/pages/privacy-policy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-2 text-heritage hover:text-[var(--fila-red)] transition-colors"
+          >
+            términos y condiciones
+          </a>{" "}
+          del evento.
         </Checkbox>
         <Checkbox name="imagen" error={errors.imagen}>
           Autorizo el uso de mi imagen para fines comunicacionales de FILA.

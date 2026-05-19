@@ -41,7 +41,7 @@ export function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="label-tech text-heritage/80 hover:text-heritage transition-colors relative group text-[0.85rem]"
+                className="label-tech text-heritage/80 hover:text-heritage transition-colors relative group text-[1.1rem]"
               >
                 {l.label}
                 <span className="absolute -bottom-1 left-0 h-px w-0 bg-[var(--fila-red)] transition-all duration-500 group-hover:w-full" />

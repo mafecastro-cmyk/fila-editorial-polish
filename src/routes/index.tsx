@@ -10,8 +10,8 @@ import afterRun from "@/assets/after-run.jpg";
 import eventRunner from "@/assets/event-runner.jpg";
 import p1 from "@/assets/product-1.jpg";
 import p2 from "@/assets/product-2.jpg";
-import p3 from "@/assets/product-3.jpg";
 import p4 from "@/assets/product-4.jpg";
+import p3Asset from "@/assets/racer-t2-extreme-masculino.png.asset.json";
 import filaNeon from "@/assets/fila-neon-logo.png";
 import runPizzaGraphic from "@/assets/run-pizza-graphic.png";
 

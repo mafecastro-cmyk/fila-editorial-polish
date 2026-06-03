@@ -174,7 +174,7 @@ export function RegistrationForm() {
         {errors.talla && <p className="mt-2 text-xs text-[var(--fila-red)]">{errors.talla}</p>}
       </div>
 
-      <Field label="Dirección" name="direccion" type="text" error={errors.direccion} className="md:col-span-2" />
+      <Field label="Ciudad" name="direccion" type="text" error={errors.direccion} className="md:col-span-2" />
 
       <div className="md:col-span-2">
         <Label>¿Sufre de alguna condición de salud?</Label>

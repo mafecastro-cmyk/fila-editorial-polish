@@ -50,7 +50,7 @@ export function Nav() {
           ))}
         </ul>
         <a href="#inscripcion" className="cta-pill cta-pill-red text-[10px] py-2.5 px-5">
-          Inscríbete
+          Inscríbete aquí
         </a>
       </nav>
     </header>

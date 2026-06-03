@@ -23,12 +23,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Una experiencia FILA que une running, comunidad y estilo de vida italiano. 22 de Mayo 2026 · Plaza TAF, Costa del Este.",
+          "Una experiencia deportiva con sabor italiano. 11 de junio 2026 · Plaza Downtown, Costa del Este.",
       },
       { property: "og:title", content: "FILA RUN & PIZZA" },
       {
         property: "og:description",
-        content: "Running, comunidad y estilo de vida italiano en una sola experiencia.",
+        content: "Una experiencia deportiva con sabor italiano.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -88,7 +88,7 @@ function Index() {
                 Corre. <span className="text-editorial-italic">Comparte.</span> Celebra.
               </p>
               <p className="mt-5 text-base md:text-lg lg:text-xl text-heritage/80 leading-relaxed font-sans tracking-wide md:whitespace-nowrap">
-                Running, comunidad y estilo de vida italiano en una sola experiencia.
+                Una experiencia deportiva con sabor italiano.
               </p>
             </div>
           </div>
@@ -124,7 +124,7 @@ function Index() {
               <h2 className="text-editorial text-heritage text-5xl md:text-6xl lg:text-[5.5rem] leading-[0.95] mb-12 max-w-xl">
                 ¿Qué es <span className="text-editorial-italic">FILA</span>
                 <br />
-                Run &amp; Pizza?
+                RUN &amp; PIZZA?
               </h2>
 
               <div className="space-y-6 text-base md:text-lg text-heritage/75 leading-[1.7] max-w-xl">
@@ -174,16 +174,16 @@ function Index() {
             <div>
               <span className="label-tech text-[var(--fila-red)]">Detalles</span>
               <h2 className="text-editorial text-5xl md:text-7xl mt-4">
-                Información del <span className="text-editorial-italic">evento</span>
+                Información del <span className="text-editorial-italic">Evento</span>
               </h2>
             </div>
-            <span className="barretta barretta-neon-outline hidden md:inline-flex">Cupos limitados</span>
+            <span className="barretta barretta-neon-outline hidden md:inline-flex">¡CUPOS LIMITADOS!</span>
           </div>
 
           <div className="relative grid grid-cols-1 md:grid-cols-3 reveal-up neon-grid-top">
-            <InfoCell label="Fecha" value="21 de mayo" sub="2026" />
-            <InfoCell label="Hora" value="6:00 PM" />
-            <InfoCell label="Lugar" value="Plaza TAF" sub="Costa del Este, Panamá" last />
+            <InfoCell label="Fecha" value="11 de junio" sub="2026" />
+            <InfoCell label="Hora" value="6:00 p.m." />
+            <InfoCell label="Lugar" value="Plaza Downtown" sub="Costa del Este, Panamá" last />
           </div>
         </div>
       </section>
@@ -210,13 +210,13 @@ function Index() {
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-12 lg:col-span-7 reveal-up">
               <h2 className="text-editorial text-heritage text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] leading-[0.9] tracking-tight">
-                After <span className="text-editorial-italic neon-text-red">Run</span>
+                AFTER <span className="text-editorial-italic neon-text-red">RUN</span>
               </h2>
             </div>
             <div className="col-span-12 lg:col-start-9 lg:col-span-4 flex flex-col justify-end space-y-8 reveal-up">
               <p className="text-xl md:text-2xl text-heritage font-light leading-relaxed">
-                Cierra la jornada con música, pizza y comunidad en{" "}
-                <span className="text-editorial-italic">Botánica</span> — TAF Costa del Este.
+                Después de la corrida participa del After en el restaurante{" "}
+                <span className="text-editorial-italic">Katané</span> Costa del Este.
               </p>
               <blockquote className="border-l-2 border-[var(--fila-red)] pl-6 text-heritage/75 italic font-serif text-2xl leading-snug">
                 “Música, pizza, comunidad y la mejor vibra para cerrar la noche.”
@@ -240,7 +240,7 @@ function Index() {
               <h2 className="text-editorial text-heritage text-5xl md:text-6xl lg:text-7xl mt-4 leading-[0.95]">
                 Inscríbete al
                 <br />
-                <span className="text-editorial-italic">Run &amp; Pizza.</span>
+                <span className="text-editorial-italic">FILA RUN &amp; PIZZA.</span>
               </h2>
             </div>
             <div className="col-span-12 lg:col-start-8 lg:col-span-5 flex items-end">
@@ -303,7 +303,7 @@ function Index() {
           {/* CTA below carousel */}
           <div className="mt-16 flex items-center justify-center reveal-up">
             <a href="#" className="cta-pill cta-pill-outline text-[var(--slate-black)]">
-              Ver colección FILA
+              Ver productos FILA
             </a>
           </div>
         </div>
